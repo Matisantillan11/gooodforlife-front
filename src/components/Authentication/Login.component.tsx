@@ -3,6 +3,7 @@ import { ImageBackground, ScrollView, StyleSheet, Text, useWindowDimensions, Vie
 import { CustomInput } from './Inputs/CustomInput';
 import { CustomButton } from '../Button/CustomButton';
 import { colors } from '../../lib/colors';
+import { GoogleButton } from '../Button/GoogleButton';
 
 //images
 
@@ -37,6 +38,13 @@ export const LoginComponent = () => {
         <Text style={styles.forgot}>¿Olvidaste tu contraseña?</Text>
 
         <CustomButton text='Ingresar' backgroundColor={colors.lightGreen} color={colors.white} containerStyle={styles.buttonContainer}/>
+      
+        <Text>O</Text>
+
+        <View style={styles.line} />
+
+        <GoogleButton google={true} />
+        <GoogleButton google={false}/>
       </View>
    </ScrollView>
   )
@@ -73,5 +81,11 @@ const styles = StyleSheet.create({
     height: 50,
     paddingVertical: 2.5,
     margin: 15
+  },
+  line:{
+    height: 1,
+    width: '80%',
+    backgroundColor: colors.gray,
+    margin: 20
   }
 })
