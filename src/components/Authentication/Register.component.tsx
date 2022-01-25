@@ -4,8 +4,6 @@ import { CustomInput } from './Inputs/CustomInput';
 import { CustomButton } from '../Button/CustomButton';
 import { colors } from '../../lib/colors';
 import { AuthStyles } from '../../lib/themes/Authentication';
-
-
 interface Props{
   navigation: any
 }
@@ -61,7 +59,7 @@ export const RegisterComponent = ({ navigation }: Props ) => {
               />
             </View>
 
-            <CustomButton onPress={() => navigation.navigate('CheckEmail', {text: "Te enviamos instrucciones a tu correo para confirmar tu cuenta"})}text='Registrarme' backgroundColor={colors.lightGreen} color={colors.white} containerStyle={AuthStyles.buttonContainer}/>
+            <CustomButton onPress={() => navigation.navigate('CheckEmail', {text: "Te enviamos instrucciones a tu correo para confirmar tu cuenta"})} text='Registrarme' backgroundColor={colors.lightGreen} color={colors.white} containerStyle={AuthStyles.buttonContainer}/>
 
             <View style={AuthStyles.dontAccountContainer}>
               <Text style={AuthStyles.dontAccount}>¿Ya tienes cuenta? </Text>

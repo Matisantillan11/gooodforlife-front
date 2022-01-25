@@ -40,7 +40,7 @@ export const LoginComponent = ({ navigation }: Props) => {
           complete={false} 
           secureTextEntry={true}
           />
-        <Pressable style={{ alignSelf: 'flex-start'}} onPress={() => navigation.navigate('CheckEmail')}><Text style={AuthStyles.forgot}>¿Olvidaste tu contraseña?</Text></Pressable>
+        <Pressable style={{ alignSelf: 'flex-start'}} onPress={() => navigation.navigate('RequestReset')}><Text style={AuthStyles.forgot}>¿Olvidaste tu contraseña?</Text></Pressable>
 
         <CustomButton text='Ingresar' backgroundColor={colors.lightGreen} color={colors.white} containerStyle={AuthStyles.buttonContainer}/>
           
