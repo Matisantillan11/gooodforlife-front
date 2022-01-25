@@ -1,9 +1,11 @@
 import React, { useMemo } from "react";
+import {NavigationProp, RouteProp, ParamListBase} from '@react-navigation/native';
 import { CheckEmailComponent } from "../../components/Mail/CheckEmail.component";
+import { RootStackParamList } from '../../navigators/PrincipalStack';
 
 interface Props{
-  navigation: any,
-  route: any
+  navigation: NavigationProp<ParamListBase>,
+  route: RouteProp<RootStackParamList, "CheckEmail">,
 }
 export const CheckEmailController = ({
   navigation,

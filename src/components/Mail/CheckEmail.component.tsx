@@ -1,4 +1,5 @@
 import React from "react";
+import {NavigationProp, ParamListBase} from '@react-navigation/native';
 import { StyleSheet, Text, View } from "react-native";
 import { color } from "react-native-elements/dist/helpers";
 import Icon from "react-native-vector-icons/MaterialIcons";
@@ -9,7 +10,7 @@ import { AuthStyles } from '../../lib/themes/Authentication';
 
 interface Props {
   text: string,
-  navigation: any
+  navigation: NavigationProp<ParamListBase>
 }
 
 export const CheckEmailComponent = ({ text, navigation }: Props) => {

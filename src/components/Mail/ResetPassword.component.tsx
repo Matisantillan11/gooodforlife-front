@@ -1,3 +1,4 @@
+import {NavigationProp, ParamListBase} from '@react-navigation/native';
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native';
 import { colors } from '../../lib/colors';
@@ -5,7 +6,7 @@ import { AuthStyles } from '../../lib/themes/Authentication';
 import { CustomButton } from '../Button/CustomButton';
 import { CustomInput } from '../Authentication/Inputs/CustomInput';
 
-interface Props { navigation: any }
+interface Props { navigation: NavigationProp<ParamListBase> }
 
 export const ResetPasswordComponent = ({ navigation }: Props) => {
   return (

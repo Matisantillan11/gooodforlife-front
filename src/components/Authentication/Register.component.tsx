@@ -1,11 +1,12 @@
 import React from "react";
+import {NavigationProp, ParamListBase} from '@react-navigation/native';
 import { KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native'
 import { CustomInput } from './Inputs/CustomInput';
 import { CustomButton } from '../Button/CustomButton';
 import { colors } from '../../lib/colors';
 import { AuthStyles } from '../../lib/themes/Authentication';
 interface Props{
-  navigation: any
+  navigation: NavigationProp<ParamListBase>
 }
 export const RegisterComponent = ({ navigation }: Props ) => {
   const dimensions = useWindowDimensions()

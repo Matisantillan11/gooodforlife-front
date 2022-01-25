@@ -1,11 +1,12 @@
 import React from 'react'
+import {NavigationProp, ParamListBase} from '@react-navigation/native';
 import { StyleSheet, Text, View } from 'react-native';
 import { AuthStyles } from '../../lib/themes/Authentication';
 import { CustomInput } from '../Authentication/Inputs/CustomInput';
 import { CustomButton } from '../Button/CustomButton';
 import { colors } from '../../lib/colors'
 
-interface Props { navigation: any }
+interface Props { navigation: NavigationProp<ParamListBase> }
 
 export const RequestResetComponent = ({ navigation }: Props) => {
   return (

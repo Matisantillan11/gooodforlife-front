@@ -1,15 +1,17 @@
 import React from 'react'
+import {NavigationProp, ParamListBase} from '@react-navigation/native';
 import { ImageBackground, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native'
 import { CustomInput } from './Inputs/CustomInput';
 import { CustomButton } from '../Button/CustomButton';
 import { colors } from '../../lib/colors';
 import { GoogleButton } from '../Button/GoogleButton';
 import { AuthStyles } from '../../lib/themes/Authentication';
+import { RootStackParamList } from '../../navigators/PrincipalStack';
 
 //images
 
 interface Props{
-  navigation: any
+  navigation: NavigationProp<ParamListBase>
 }
 
 export const LoginComponent = ({ navigation }: Props) => {
