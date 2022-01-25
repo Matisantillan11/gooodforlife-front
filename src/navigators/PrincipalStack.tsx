@@ -1,13 +1,15 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack';
+
+//screens
 import { Login } from '../screens/Authentication/Login.view';
 import { RegisterView as Register } from '../screens/Authentication/Register.view';
 import { CheckEmailView as CheckEmail} from '../screens/Authentication/Mail/CheckEmail.view';
 import { RequestResetView as RequestReset} from '../screens/Authentication/Mail/RequestReset.view';
+import { ResetPasswordView as ResetPassword } from '../screens/Authentication/Mail/ResetPassword.view';
+
 import { colors } from '../lib/colors';
-import Icon from "react-native-vector-icons/MaterialIcons";
-import { color } from 'react-native-elements/dist/helpers';
-import LinearGradient from 'react-native-linear-gradient';
+
 
 export type RootStackParamList = {
   Login: undefined
@@ -34,9 +36,9 @@ export const PrincipalStack = ()  => {
     >
       <Stack.Screen name="Login" component={Login}  options={{headerShown:false}} />
       <Stack.Screen name="Register" component={Register}  options={{headerShown:false}} />
-      <Stack.Screen name="RequestReset" component={RequestReset} options={{ title: 'Back',}}/>
+      <Stack.Screen name="RequestReset" component={RequestReset} options={{ title: 'Back'}}/>
       <Stack.Screen name="CheckEmail" component={CheckEmail}  options={{headerShown:false}} />
-      <Stack.Screen name="ResetPassword" component={CheckEmail} options={{  title: 'Back',}}/>
+      <Stack.Screen name="ResetPassword" component={ResetPassword} options={{  title: 'Back'}}/>
     </Stack.Navigator>
   );
 }

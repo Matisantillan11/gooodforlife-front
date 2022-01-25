@@ -36,7 +36,7 @@ export const LoginComponent = ({ navigation }: Props) => {
           keyboardType='email-address'
         />
         <CustomInput 
-          placeholder='example@email.com' 
+          placeholder='*********' 
           complete={false} 
           secureTextEntry={true}
           />

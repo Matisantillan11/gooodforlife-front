@@ -12,7 +12,7 @@ interface Props {
   navigation: any
 }
 
-export const CheckEmailComponent = ({ text }: Props) => {
+export const CheckEmailComponent = ({ text, navigation }: Props) => {
   return( 
     <>
       <View style={styles.container}>
@@ -23,7 +23,7 @@ export const CheckEmailComponent = ({ text }: Props) => {
         <Text style={styles.title}>Chequea tu email</Text>
         <Text style={styles.subtitle}>{ text }</Text>
         <View style={styles.openEmailContainer}>
-          <CustomButton text="Abrir correo" containerStyle={AuthStyles.buttonContainer} backgroundColor={colors.lightGreen} color={colors.white}/>
+          <CustomButton onPress={()=> navigation.navigate('ResetPassword')} text="Abrir correo" containerStyle={AuthStyles.buttonContainer} backgroundColor={colors.lightGreen} color={colors.white}/>
           <Text style={styles.nextText}>Continuar, lo haré luego..</Text>
         </View>
       
