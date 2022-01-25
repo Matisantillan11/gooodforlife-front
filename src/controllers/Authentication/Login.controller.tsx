@@ -1,8 +1,12 @@
+import { StackScreenProps } from '@react-navigation/stack'
 import React from 'react'
 import { LoginComponent } from '../../components/Authentication/Login.component'
 
-export const LoginController = () => {
+interface Props {
+  navigation: any
+}
+export const LoginController = (props: Props) => {
   return (
-    <LoginComponent />
+    <LoginComponent {...props} />
   )
 }

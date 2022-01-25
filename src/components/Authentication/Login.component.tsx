@@ -1,23 +1,28 @@
 import React from 'react'
-import { ImageBackground, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native'
+import { ImageBackground, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native'
 import { CustomInput } from './Inputs/CustomInput';
 import { CustomButton } from '../Button/CustomButton';
 import { colors } from '../../lib/colors';
 import { GoogleButton } from '../Button/GoogleButton';
+import { AuthStyles } from '../../lib/themes/Authentication';
 
 //images
 
-export const LoginComponent = () => {
+interface Props{
+  navigation: any
+}
+
+export const LoginComponent = ({ navigation }: Props) => {
   const dimensions = useWindowDimensions()
   return (
-    <ScrollView style={styles.root}>
-      <View style={styles.container}>
+    <ScrollView style={AuthStyles.root}>
+      <View style={AuthStyles.container}>
         <View style={[
-            styles.imageContainer,
+            AuthStyles.imageContainer,
             {width: dimensions.width,}
           ]}>
           <ImageBackground style={[
-            styles.image, 
+            AuthStyles.image, 
             {width: dimensions.width}
           ]} 
           source={require('../../assets/LoginFrame.png')} 
@@ -35,13 +40,18 @@ export const LoginComponent = () => {
           complete={false} 
           secureTextEntry={true}
           />
-        <Text style={styles.forgot}>¿Olvidaste tu contraseña?</Text>
+        <Pressable style={{ alignSelf: 'flex-start'}} onPress={() => navigation.navigate('CheckEmail')}><Text style={AuthStyles.forgot}>¿Olvidaste tu contraseña?</Text></Pressable>
 
-        <CustomButton text='Ingresar' backgroundColor={colors.lightGreen} color={colors.white} containerStyle={styles.buttonContainer}/>
-      
-        <Text>O</Text>
+        <CustomButton text='Ingresar' backgroundColor={colors.lightGreen} color={colors.white} containerStyle={AuthStyles.buttonContainer}/>
+          
+        <View style={AuthStyles.dontAccountContainer}>
+          <Text style={AuthStyles.dontAccount}>¿Aún no tienes cuenta? </Text>
+          <Pressable onPress={() => navigation.navigate('Register')}>
+            <Text style={AuthStyles.registerText}>Registrate</Text>
+          </Pressable>
+        </View>
 
-        <View style={styles.line} />
+        <View style={AuthStyles.line} />
 
         <GoogleButton google={true} />
         <GoogleButton google={false}/>
@@ -50,42 +60,3 @@ export const LoginComponent = () => {
   )
 }
 
-const styles = StyleSheet.create({
-  root: {
-    flex:1,
-  },
-  container:{
-    flex:1,
-    justifyContent:'center',
-    alignItems: 'center',
-  },
-  imageContainer: {
-    height: 250,
-    marginBottom: 20
-  },
-  image: {
-    flex: 1
-  },
-  forgot:{
-    color: colors.lightGreen,
-    fontSize: 16,
-    fontWeight: '500',
-    marginLeft: 30,
-    marginBottom: 25,
-    alignSelf: 'flex-start'
-  },
-  buttonContainer:{
-    width: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 50,
-    paddingVertical: 2.5,
-    margin: 15
-  },
-  line:{
-    height: 1,
-    width: '80%',
-    backgroundColor: colors.gray,
-    margin: 20
-  }
-})
