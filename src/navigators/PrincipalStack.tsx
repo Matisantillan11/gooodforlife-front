@@ -4,9 +4,10 @@ import { createStackNavigator } from '@react-navigation/stack';
 //screens
 import { Login } from '../screens/Authentication/Login.view';
 import { RegisterView as Register } from '../screens/Authentication/Register.view';
-import { CheckEmailView as CheckEmail} from '../screens/Authentication/Mail/CheckEmail.view';
-import { RequestResetView as RequestReset} from '../screens/Authentication/Mail/RequestReset.view';
-import { ResetPasswordView as ResetPassword } from '../screens/Authentication/Mail/ResetPassword.view';
+import { CheckEmailView as CheckEmail} from '../screens/Mail/CheckEmail.view';
+import { RequestResetView as RequestReset} from '../screens/Mail/RequestReset.view';
+import { ResetPasswordView as ResetPassword } from '../screens/Mail/ResetPassword.view';
+import { HomeStack } from './HomeStack';
 
 import { colors } from '../lib/colors';
 
@@ -17,6 +18,7 @@ export type RootStackParamList = {
   RequestReset: undefined
   CheckEmail: { text: string }
   ResetPassword: undefined
+  HomeStack: undefined
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -39,6 +41,7 @@ export const PrincipalStack = ()  => {
       <Stack.Screen name="RequestReset" component={RequestReset} options={{ title: 'Back'}}/>
       <Stack.Screen name="CheckEmail" component={CheckEmail}  options={{headerShown:false}} />
       <Stack.Screen name="ResetPassword" component={ResetPassword} options={{  title: 'Back'}}/>
+      <Stack.Screen name="HomeStack" component={HomeStack} options={{headerShown: false}}/>
     </Stack.Navigator>
   );
 }
