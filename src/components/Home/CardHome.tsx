@@ -7,9 +7,10 @@ import plant from '../../assets/lemon-hoja.png'
 interface Props{
   text: string,
   pressableText: string
+  onPress?: () => void
 }
 
-export const CardHome = ({ text, pressableText }: Props) => {
+export const CardHome = ({ text, pressableText, onPress }: Props) => {
   const dimensions = useWindowDimensions()
   return (
     <View style={[styles.root, { width: dimensions.width * 0.85, height: dimensions.height * 0.3 }]}>
@@ -17,7 +18,7 @@ export const CardHome = ({ text, pressableText }: Props) => {
       <Image style={[styles.plantImage, { right: 0, transform: [{rotate: '75deg'}] }]}source={plant} />
       <Text> { text }</Text>
 
-      <Pressable style={ [styles.pressable, { width: dimensions.width * 0.80 }]}>
+      <Pressable onPress={onPress} style={ [styles.pressable, { width: dimensions.width * 0.80 }]}>
         <Text style={styles.pressableText}> { pressableText } </Text>
       </Pressable>
     </View>

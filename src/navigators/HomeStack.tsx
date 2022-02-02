@@ -1,16 +1,17 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack';
+import { colors } from '../lib/colors';
+import Icon  from 'react-native-vector-icons/MaterialIcons';
 
 //screens
 import { HomeView as Home} from '../screens/Home/Home.view'
+import { MenuView  as Menu} from '../screens/Menu/Menu.view';
 
-
-import { colors } from '../lib/colors';
-import Icon  from 'react-native-vector-icons/MaterialIcons';
 
 
 export type HomeStackParamList = {
   Home: undefined
+  Menu: undefined
 };
 
 const Stack = createStackNavigator<HomeStackParamList>();
@@ -31,6 +32,7 @@ export const HomeStack = ()  => {
     }}
     >
       <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Menu" component={Menu} />
     </Stack.Navigator>
   );
 }
