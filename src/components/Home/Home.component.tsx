@@ -10,7 +10,7 @@ export const HomeComponent = () => {
   return (
     <>
       <CustomHeader image={headerHome} text="En GoodForLife cocinamos rico, sano y natural para vos..." />  
-      <ScrollView style={{flex: 1}}>
+      <ScrollView style={{flex: 1 }}>
         <CardHome text="" pressableText='Ver recetas'/>
         <CardHome text="" pressableText='Ver menús'/>
         <CardHome text="" pressableText='Armá tu plato'/>

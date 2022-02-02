@@ -1,8 +1,9 @@
 import React from 'react';
-import { Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { Image, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { colors } from '../../lib/colors';
 
-
+//images
+import plant from '../../assets/lemon-hoja.png'
 interface Props{
   text: string,
   pressableText: string
@@ -12,6 +13,8 @@ export const CardHome = ({ text, pressableText }: Props) => {
   const dimensions = useWindowDimensions()
   return (
     <View style={[styles.root, { width: dimensions.width * 0.85, height: dimensions.height * 0.3 }]}>
+      <Image style={styles.plantImage}source={plant} />
+      <Image style={[styles.plantImage, { right: 0, transform: [{rotate: '75deg'}] }]}source={plant} />
       <Text> { text }</Text>
 
       <Pressable style={ [styles.pressable, { width: dimensions.width * 0.80 }]}>
@@ -56,4 +59,10 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: 'center'
   },
+  plantImage: {
+    width: 35,
+    height: 40,
+    position: 'absolute',
+    top: 5
+  }
 })
