@@ -1,42 +1,54 @@
 import React from 'react'
-import { createStackNavigator } from '@react-navigation/stack'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { colors } from '../lib/colors'
 import Icon  from 'react-native-vector-icons/MaterialIcons'
 
 //screens
 import { HomeView as Home} from '../screens/Home/Home.view'
-import { MenuTypeView  as MenuType} from '../screens/Menu/MenuType.view';
-import { MenuView  as Menu} from '../screens/Menu/Menu.view'
+import { MenuStackParamList, MenuStack } from './MenuStack';
 
 
 
 export type HomeStackParamList = {
   Home: undefined
-  MenuType: undefined
-  Menu: undefined
+  MenuStack: MenuStackParamList
 };
 
-const Stack = createStackNavigator<HomeStackParamList>();
+const Tab = createBottomTabNavigator<HomeStackParamList>();
 
 export const HomeStack = ()  => {
   return (
-    <Stack.Navigator 
-    screenOptions={{
-      headerLeft: () => <Icon name="menu" size={50} color={colors.white} style={{marginLeft: 20}}/>,
-      headerTitle: '',
-      headerTintColor: colors.white,
-      headerTitleStyle: {
-        fontWeight: '600',
-      },
-      headerStyle:{
-        backgroundColor: 'linear-gradient(to right, rgba(146, 198, 78, 0.76), rgba(102,175,75, 0.73))',
-      },
-      cardStyle: {backgroundColor: '#FFFFFF'},
+    <Tab.Navigator 
+    sceneContainerStyle={{
+      backgroundColor: '#f1f1f1',
     }}
+    screenOptions={({route}) => ({
+      tabBarIcon: ({color, size}) => {
+        let iconName: string = '';
+        switch (route.name) {
+          case 'Home':
+            iconName = 'home';
+            break;
+          case 'MenuStack':
+            iconName = 'book';
+            break;
+        
+
+        }
+
+        return <Icon name={iconName} size={size} color={color} />;
+      },
+      tabBarInactiveTintColor: "#F1F1F1",
+      tabBarActiveTintColor: '#4BAF50',
+      tabBarLabelStyle: {fontSize: 14, fontWeight: 'bold'},
+      headerShown: false,
+      tabBarStyle: {
+        backgroundColor: 'linear-gradient(to right, rgba(146, 198, 78, 0.76), rgba(102,175,75, 0.73))'
+      }
+    })}
     >
-      <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="MenuType" component={MenuType} />
-      <Stack.Screen name="Menu" component={Menu} />
-    </Stack.Navigator>
+      <Tab.Screen name="Home" component={Home} options={{ tabBarLabel: 'Inicio'}} />
+      <Tab.Screen name="MenuStack" component={MenuStack} options={{ tabBarLabel: 'Menúes'}} />
+    </Tab.Navigator>
   );
 }
