@@ -21,6 +21,7 @@ export const HomeStack = ()  => {
     <Stack.Navigator 
     screenOptions={{
       headerLeft: () => <Icon name="menu" size={50} color={colors.white} style={{marginLeft: 20}}/>,
+      headerTitle: '',
       headerTintColor: colors.white,
       headerTitleStyle: {
         fontWeight: '600',
