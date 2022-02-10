@@ -15,7 +15,7 @@ export const HomeComponent = ({ navigation }: Props) => {
       <CustomHeader image={headerHome} text="En GoodForLife cocinamos rico, sano y natural para vos..." />  
       <ScrollView style={{flex: 1 }}>
         <CardHome text="" pressableText='Ver recetas'/>
-        <CardHome onPress={() => navigation.navigate('Menu')} text="" pressableText='Ver menús'/>
+        <CardHome onPress={() => navigation.navigate('MenuType')} text="" pressableText='Ver menús'/>
         <CardHome text="" pressableText='Armá tu plato'/>
         <CardHome text="" pressableText='Ver historial'/>
         <CardHome text="" pressableText='Subscrimirme'/>

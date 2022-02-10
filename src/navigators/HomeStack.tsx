@@ -1,16 +1,18 @@
 import React from 'react'
-import { createStackNavigator } from '@react-navigation/stack';
-import { colors } from '../lib/colors';
-import Icon  from 'react-native-vector-icons/MaterialIcons';
+import { createStackNavigator } from '@react-navigation/stack'
+import { colors } from '../lib/colors'
+import Icon  from 'react-native-vector-icons/MaterialIcons'
 
 //screens
 import { HomeView as Home} from '../screens/Home/Home.view'
-import { MenuView  as Menu} from '../screens/Menu/Menu.view';
+import { MenuTypeView  as MenuType} from '../screens/Menu/MenuType.view';
+import { MenuView  as Menu} from '../screens/Menu/Menu.view'
 
 
 
 export type HomeStackParamList = {
   Home: undefined
+  MenuType: undefined
   Menu: undefined
 };
 
@@ -33,6 +35,7 @@ export const HomeStack = ()  => {
     }}
     >
       <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="MenuType" component={MenuType} />
       <Stack.Screen name="Menu" component={Menu} />
     </Stack.Navigator>
   );
