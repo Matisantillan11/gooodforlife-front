@@ -1,70 +1,76 @@
-import React from 'react'
+import React from 'react';
 import {NavigationProp, ParamListBase} from '@react-navigation/native';
-import { ActivityIndicator, ImageBackground, Pressable, ScrollView, Text, useWindowDimensions, View } from 'react-native'
-import { CustomInput } from './Inputs/CustomInput';
-import { CustomButton } from '../Button/CustomButton';
-import { colors } from '../../lib/colors';
-import { GoogleButton } from '../Button/GoogleButton';
-import { AuthStyles } from '../../lib/themes/Authentication';
-import { useSelector } from 'react-redux';
+import {
+  ActivityIndicator,
+  ImageBackground,
+  Pressable,
+  ScrollView,
+  Text,
+  useWindowDimensions,
+  View,
+} from 'react-native';
+import {CustomInput} from './Inputs/CustomInput';
+import {CustomButton} from '../Button/CustomButton';
+import {colors} from '../../lib/colors';
+import {GoogleButton} from '../Button/GoogleButton';
+import {AuthStyles} from '../../lib/themes/Authentication';
+import {useSelector} from 'react-redux';
 
 //images
 
-interface Props{
-  navigation: NavigationProp<ParamListBase>,
-  login: () => void,
-  loginReducer: any
+interface Props {
+  navigation: NavigationProp<ParamListBase>;
+  login: () => void;
+  loginReducer: any;
 }
 
-export const LoginComponent = ({ navigation, login, loginReducer }: Props) => {
-  
-  console.log(loginReducer)
-  const dimensions = useWindowDimensions()
+export const LoginComponent = ({navigation, login, loginReducer}: Props) => {
+  const dimensions = useWindowDimensions();
   return (
     <>
-    {
-      loginReducer.fetching ? (
-      <View>
-        <ActivityIndicator size="large" />
-      </View>
+      {loginReducer.fetching ? (
+        <View>
+          <ActivityIndicator size="large" />
+        </View>
       ) : (
         <ScrollView style={AuthStyles.root}>
           <View style={AuthStyles.container}>
-            <View style={[
-                AuthStyles.imageContainer,
-                {width: dimensions.width,}
-              ]}>
-              <ImageBackground style={[
-                AuthStyles.image, 
-                {width: dimensions.width}
-              ]} 
-              source={require('../../assets/LoginFrame.png')} 
+            <View
+              style={[AuthStyles.imageContainer, {width: dimensions.width}]}>
+              <ImageBackground
+                style={[AuthStyles.image, {width: dimensions.width}]}
+                source={require('../../assets/LoginFrame.png')}
               />
             </View>
 
-            
-            <CustomInput 
-              placeholder='example@email.com' 
-              complete={false} 
-              keyboardType='email-address'
+            <CustomInput
+              placeholder="example@email.com"
+              complete={false}
+              keyboardType="email-address"
             />
-            <CustomInput 
-              placeholder='*********' 
-              complete={false} 
+            <CustomInput
+              placeholder="*********"
+              complete={false}
               secureTextEntry={true}
-              />
-            <Pressable style={{ alignSelf: 'flex-start'}} onPress={() => navigation.navigate('RequestReset')}><Text style={AuthStyles.forgot}>¿Olvidaste tu contraseña?</Text></Pressable>
-
-            <CustomButton 
-            text='Ingresar' 
-            backgroundColor={colors.lightGreen} 
-            color={colors.white} 
-            containerStyle={AuthStyles.buttonContainer}
-            onPress={login}
             />
-              
+            <Pressable
+              style={{alignSelf: 'flex-start'}}
+              onPress={() => navigation.navigate('RequestReset')}>
+              <Text style={AuthStyles.forgot}>¿Olvidaste tu contraseña?</Text>
+            </Pressable>
+
+            <CustomButton
+              text="Ingresar"
+              backgroundColor={colors.lightGreen}
+              color={colors.white}
+              containerStyle={AuthStyles.buttonContainer}
+              onPress={login}
+            />
+
             <View style={AuthStyles.dontAccountContainer}>
-              <Text style={AuthStyles.dontAccount}>¿Aún no tienes cuenta? </Text>
+              <Text style={AuthStyles.dontAccount}>
+                ¿Aún no tienes cuenta?{' '}
+              </Text>
               <Pressable onPress={() => navigation.navigate('Register')}>
                 <Text style={AuthStyles.registerText}>Registrate</Text>
               </Pressable>
@@ -73,13 +79,10 @@ export const LoginComponent = ({ navigation, login, loginReducer }: Props) => {
             <View style={AuthStyles.line} />
 
             <GoogleButton google={true} />
-            <GoogleButton google={false}/>
+            <GoogleButton google={false} />
           </View>
         </ScrollView>
-      )
-    }
+      )}
     </>
-    
-  )
-}
-
+  );
+};
