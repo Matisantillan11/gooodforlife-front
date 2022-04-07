@@ -14,26 +14,28 @@ import {CustomButton} from '../Button/CustomButton';
 import {colors} from '../../lib/colors';
 import {GoogleButton} from '../Button/GoogleButton';
 import {AuthStyles} from '../../lib/themes/Authentication';
-import {useSelector} from 'react-redux';
+import {Category} from '../../interfaces/interfaces';
 
 //images
 
 interface Props {
   navigation: NavigationProp<ParamListBase>;
   login: () => void;
-  loginReducer: any;
+  loading: string;
+  result: Category[];
 }
 
-export const LoginComponent = ({navigation, login, loginReducer}: Props) => {
+export const LoginComponent = ({navigation, login, loading, result}: Props) => {
   const dimensions = useWindowDimensions();
   return (
     <>
-      {loginReducer.fetching ? (
+      {loading === 'fetching' ? (
         <View>
           <ActivityIndicator size="large" />
         </View>
       ) : (
         <ScrollView style={AuthStyles.root}>
+          <Text>{JSON.stringify(result)}</Text>
           <View style={AuthStyles.container}>
             <View
               style={[AuthStyles.imageContainer, {width: dimensions.width}]}>

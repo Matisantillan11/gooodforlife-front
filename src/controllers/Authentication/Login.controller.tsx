@@ -1,23 +1,27 @@
 import {StackScreenProps} from '@react-navigation/stack';
-import React from 'react';
+import React, {useContext, useState} from 'react';
 import {LoginComponent} from '../../components/Authentication/Login.component';
 import {NavigationProp, ParamListBase} from '@react-navigation/native';
 import {useDispatch, useSelector} from 'react-redux';
+import {CategoryContext} from '../../context/store/category/categoryContext';
 
-import * as loginAction from '../../redux/store/actions/login.action';
 interface Props {
   navigation: NavigationProp<ParamListBase>;
 }
 export const LoginController = (props: Props) => {
-  const dispatch = useDispatch();
-  const loginReducer = useSelector((store: any) => store.loginReducer);
+  const [isLoading, setIsLoading] = useState(false);
+  const {getAll, result, status, message} = useContext(CategoryContext);
 
   const loginUser = () => {
-    dispatch(loginAction.loginWithEmail());
-    /* props.navigation.navigate('HomeStack') */
+    getAll();
   };
 
   return (
-    <LoginComponent {...props} login={loginUser} loginReducer={loginReducer} />
+    <LoginComponent
+      {...props}
+      login={loginUser}
+      loading={status}
+      result={result}
+    />
   );
 };

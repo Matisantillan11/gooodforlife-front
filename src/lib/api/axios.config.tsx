@@ -1,8 +1,8 @@
-import axios from "axios"
+import axios from 'axios';
 
 export const api = axios.create({
-  baseURL: `${process.env.API_URL}`
-})
+  baseURL: 'https://goodforlife-api.herokuapp.com',
+});
 
 /* apiConfig.interceptors.response.use(
   async (config) => {
