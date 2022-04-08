@@ -6,10 +6,12 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 //screens
 import {MenuView as Menu} from '../screens/Menu/Menu.view';
 import {MenuTypeView as MenuType} from '../screens/Menu/MenuType.view';
+import {MenuDescriptionView as MenuDescription} from '../screens/Menu/MenuDescription.view';
 
 export type MenuStackParamList = {
   MenuType: undefined;
   Menu: {category: string; banner: string};
+  MenuDescription: {picture: string; title: string; price: number; description: string; ingredients: string[]};
 };
 
 const Stack = createStackNavigator<MenuStackParamList>();
@@ -30,6 +32,7 @@ export const MenuStack = () => {
       }}>
       <Stack.Screen name="MenuType" component={MenuType} options={{title: ''}} />
       <Stack.Screen name="Menu" component={Menu} />
+      <Stack.Screen name="MenuDescription" component={MenuDescription} />
     </Stack.Navigator>
   );
 };
