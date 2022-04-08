@@ -1,8 +1,8 @@
 import React from 'react';
-import { HomeComponent } from '../../components/Home/Home.component';
+import {HomeComponent} from '../../components/Home/Home.component';
 
 interface Props {
-  navigation: any
+  navigation: any;
 }
 
 export const HomeController = (props: Props) => {

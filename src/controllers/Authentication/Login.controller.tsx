@@ -12,16 +12,7 @@ export const LoginController = (props: Props) => {
   const [isLoading, setIsLoading] = useState(false);
   const {getAll, result, status, message} = useContext(CategoryContext);
 
-  const loginUser = () => {
-    getAll();
-  };
+  const loginUser = () => {};
 
-  return (
-    <LoginComponent
-      {...props}
-      login={loginUser}
-      loading={status}
-      result={result}
-    />
-  );
+  return <LoginComponent {...props} login={loginUser} />;
 };
