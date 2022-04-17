@@ -20,7 +20,7 @@ export const TypeCard = ({text, image, onPress}: Props) => {
 
   return (
     <Pressable onPress={onPress}>
-      <View style={[styles.cardContainer, {width: dimensions.width * 0.33, height: dimensions.height * 0.25}]}>
+      <View style={[styles.cardContainer, {width: dimensions.width * 0.25, height: dimensions.height * 0.2}]}>
         <ImageBackground source={image} style={styles.image}>
           <View />
         </ImageBackground>

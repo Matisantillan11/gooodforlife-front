@@ -20,7 +20,7 @@ export const MenuStack = () => {
   return (
     <Stack.Navigator
       screenOptions={{
-        headerLeft: () => <Icon name="menu" size={50} color={colors.white} style={{marginLeft: 20}} />,
+        /*   headerLeft: () => <Icon name="menu" size={50} color={colors.white} style={{marginLeft: 20}} />, */
         headerTintColor: colors.white,
         headerTitleStyle: {
           fontWeight: '600',

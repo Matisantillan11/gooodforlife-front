@@ -18,22 +18,22 @@ export const MenuCard = ({imageSource, title, price, onPressInformation, onPress
     <View
       style={[
         styles.card,
-        {width: dimensions.width * 0.6, height: dimensions.height * 0.4, marginHorizontal: dimensions.width * 0.1},
+        {width: dimensions.width * 0.5, height: dimensions.height * 0.4, marginHorizontal: dimensions.width * 0.1},
       ]}>
       <View style={styles.cardImage}>
         <Image style={styles.image} source={imageSource} />
       </View>
 
       <Text>{title}</Text>
-      <Text>${price}</Text>
+      <Text style={{fontWeight: 'bold'}}>${price}</Text>
 
       <View style={styles.buttonsContainer}>
         <Pressable onPress={onPressCart} style={styles.cartBtn}>
-          <Icon name="cart" size={30} />
+          <Icon name="cart" size={20} />
         </Pressable>
 
         <Pressable onPress={onPressInformation} style={styles.cartBtn}>
-          <Icon name="information" size={30} />
+          <Icon name="information" size={20} />
         </Pressable>
       </View>
     </View>
@@ -55,6 +55,7 @@ const styles = StyleSheet.create({
     shadowRadius: 12,
     elevation: 7,
     marginVertical: 20,
+    padding: 20,
   },
   cardImage: {
     width: '100%',
@@ -68,11 +69,12 @@ const styles = StyleSheet.create({
   },
   image: {
     height: '100%',
+    width: '100%',
   },
   cartBtn: {
     backgroundColor: 'rgba(181, 179, 244, .33)',
-    width: 45,
-    height: 45,
+    width: 40,
+    height: 40,
     borderRadius: 12,
     justifyContent: 'center',
     alignItems: 'center',

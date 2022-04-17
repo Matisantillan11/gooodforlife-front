@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, useWindowDimensions, View} from 'react-native';
 import {NavigationProp, ParamListBase} from '@react-navigation/native';
 import {TypeCard} from './TypeCard';
-import palta from '../../assets/avocado.png';
+import pet from '../../assets/G4L-pet.png';
 import {ScrollView} from 'react-native-gesture-handler';
 import {Category} from '../../interfaces/interfaces';
 import {Loader} from '../Loader/loader.component';
@@ -46,7 +46,7 @@ export const MenuTypeComponent = ({navigation, categories, isLoading, message}: 
                   key={category._id}
                   onPress={() => navigation.navigate('Menu', {category: category.name})}
                   text={category.name}
-                  image={palta}
+                  image={pet}
                 />
               ))}
             </View>
