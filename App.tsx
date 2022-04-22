@@ -4,6 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {PrincipalStack} from './src/navigators/PrincipalStack';
 
 import {CategoryProvider} from './src/context/store/category/categoryContext';
+import {AuthProvider} from './src/context/store/authentication/authContext';
 
 export const App = () => {
   return (
@@ -16,5 +17,9 @@ export const App = () => {
 };
 
 const AppState = ({children}: any) => {
-  return <CategoryProvider>{children}</CategoryProvider>;
+  return (
+    <AuthProvider>
+      <CategoryProvider>{children}</CategoryProvider>
+    </AuthProvider>
+  );
 };

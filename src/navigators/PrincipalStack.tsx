@@ -10,6 +10,7 @@ import {ResetPasswordView as ResetPassword} from '../screens/Mail/ResetPassword.
 import {HomeStack} from './HomeStack';
 
 import {colors} from '../lib/colors';
+import {storage} from '../lib/storage';
 
 export type RootStackParamList = {
   Login: undefined;
@@ -23,6 +24,9 @@ export type RootStackParamList = {
 const Stack = createStackNavigator<RootStackParamList>();
 
 export const PrincipalStack = () => {
+  const {getStore} = storage();
+  const token = getStore('token');
+
   return (
     <Stack.Navigator
       screenOptions={{
@@ -33,12 +37,18 @@ export const PrincipalStack = () => {
         },
         cardStyle: {backgroundColor: '#FFFFFF'},
       }}>
-      <Stack.Screen name="Login" component={Login} options={{headerShown: false}} />
-      <Stack.Screen name="Register" component={Register} options={{headerShown: false}} />
-      <Stack.Screen name="RequestReset" component={RequestReset} options={{title: 'Back'}} />
-      <Stack.Screen name="CheckEmail" component={CheckEmail} options={{headerShown: false}} />
-      <Stack.Screen name="ResetPassword" component={ResetPassword} options={{title: 'Back'}} />
-      <Stack.Screen name="HomeStack" component={HomeStack} options={{headerShown: false}} />
+      {token ? (
+        <Stack.Screen name="HomeStack" component={HomeStack} options={{headerShown: false}} />
+      ) : (
+        <>
+          <Stack.Screen name="Login" component={Login} options={{headerShown: false}} />
+          <Stack.Screen name="Register" component={Register} options={{headerShown: false}} />
+          <Stack.Screen name="RequestReset" component={RequestReset} options={{title: 'Back'}} />
+          <Stack.Screen name="CheckEmail" component={CheckEmail} options={{headerShown: false}} />
+          <Stack.Screen name="ResetPassword" component={ResetPassword} options={{title: 'Back'}} />
+          <Stack.Screen name="HomeStack" component={HomeStack} options={{headerShown: false}} />)
+        </>
+      )}
     </Stack.Navigator>
   );
 };
